@@ -4,14 +4,19 @@ Este proyecto incluye un pack de iconos generado con **IcoMoon**. A continuació
 
 ---
 
-## 1️⃣ Archivos necesarios
+## 1️⃣ Estructura de archivos
 
-Dentro de tu carpeta (ejemplo: `/assets/icomoon/`) deben estar al menos:
+Después de exportar de IcoMoon y organizar en tu proyecto, la carpeta debería verse así:
 
 ```
-/assets/icomoon/
+/docs
    style.css
-   icomoon.ttf
+   demo.html
+   /fonts
+      icomoon.ttf
+      icomoon.woff
+      icomoon.svg
+      icomoon.eot
    selection.json
 ```
 
@@ -19,7 +24,7 @@ Dentro de tu carpeta (ejemplo: `/assets/icomoon/`) deben estar al menos:
 
 ## 2️⃣ Añadir la fuente a tu proyecto
 
-1. Copia el archivo `icomoon.ttf` a la carpeta `assets/fonts/` de tu proyecto.  
+1. Copia el archivo `icomoon.ttf` desde `/docs/fonts/` a la carpeta `assets/fonts/` de tu proyecto React Native.  
    Ejemplo:
    ```
    /assets/fonts/icomoon.ttf
@@ -43,12 +48,12 @@ Dentro de tu carpeta (ejemplo: `/assets/icomoon/`) deben estar al menos:
 
 ## 3️⃣ Crear el componente de iconos
 
-Usaremos `createIconSetFromIcoMoon` para importar el set:
+Usaremos `createIconSetFromIcoMoon` para importar el set (usando el archivo `selection.json` que venía en el zip de IcoMoon):
 
 ```js
 // components/MyIcons.js
 import { createIconSetFromIcoMoon } from 'react-native-vector-icons';
-import icoMoonConfig from '../assets/icomoon/selection.json';
+import icoMoonConfig from '../docs/selection.json';
 
 const MyIcons = createIconSetFromIcoMoon(
   icoMoonConfig,
